@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Van</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .car-item {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .car-item img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .car-details {
+      flex-grow: 1;
+    }
+
+    .car-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .car-price {
+      font-size: 16px;
+      color: #f56b2a;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .car-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .car-item img {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+    button {
+      background-color: #bdcbca; /* Green background */
+      border: none; /* Remove borders */
+      color: white; /* White text */
+      padding: 10px 20px; /* Some padding */
+      text-align: center; /* Centered text */
+      text-decoration: none; /* Remove underline */
+      display: inline-block; /* Make the button inline */
+      font-size: 16px; /* Set font size */
+      margin: 10px 0; /* Add some margin */
+      cursor: pointer; /* Pointer cursor on hover */
+      border-radius: 5px; /* Rounded corners */
+      transition: background-color 0.3s; /* Smooth transition */
+    }
+
+    button:hover {
+      background-color: #bdcbca; /* Darker green on hover */
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Main Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Car Rent</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="types-of-cars.html">Types of Cars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="About-us.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="FAQ.html">FAQ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Search and Filter Controls -->
+<div class="container my-4">
+  <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search for a car...">
+</div>
+
+<div class="container my-4" id="carList">
+  <h1 class="mb-4">Van</h1>
+  <div class="car-item" data-type="V1">
+    <img src="https://gld-creative.s3.us-west-2.amazonaws.com/2024-toyota-sienna-platinum-model-trim-8f76977dafea-600x300.png" alt="SUV">
+    <div class="car-details">
+      <div class="car-title">Toyota Sienna</div>
+      <div class="car-price">20K tg/day</div>
+    </div>
+  </div>
+  <div class="car-item" data-type="V2">
+    <img src="https://platform.cstatic-images.com/large/in/v2/stock_photos/0b138c37-1661-4648-8f90-ae649f95585b/17597790-d17b-4c75-af53-e265ac700b9f.png" alt="Sedan">
+    <div class="car-details">
+      <div class="car-title">Honda Odyssey</div>
+      <div class="car-price">10K tg/day</div>
+    </div>
+  </div>
+  <div class="car-item" data-type="V3">
+    <img src="https://images.dealer.com/autodata/us/color/2023/USD30MBV063A0/040.jpg" alt="Convertible">
+    <div class="car-details">
+      <div class="car-title">Mercedes-Benz Metris</div>
+      <div class="car-price">25K tg/day</div>
+    </div>
+  </div>
+</div>
+
+
+<button onclick="location.href='types-of-cars.html'">Back</button>
+
+<!-- JavaScript for Search -->
+<script>
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const carItems = document.querySelectorAll('.car-item');
+    carItems.forEach(car => {
+      const title = car.querySelector('.car-title').textContent.toLowerCase();
+      car.style.display = title.includes(query) ? 'flex' : 'none';
+    });
+  });
+
+</script>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+
+  document.querySelectorAll('.car-item').forEach(carItem => {
+    carItem.addEventListener('click', function () {
+      const carType = this.getAttribute('data-type');
+
+      // Проверка типа автомобиля и перенаправление на соответствующую страницу
+      switch (carType) {
+        case 'V1':
+          window.location.href = 'register.html';
+          break;
+        case 'V2':
+          window.location.href = 'register.html';
+          break;
+        case 'V3':
+          window.location.href = 'register.html';
+          break;
+        default:
+          window.location.href = 'default.html';
+      }
+    });
+  });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Types of Cars</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .car-item {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .car-item img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+
+    .car-details {
+      flex-grow: 1;
+    }
+
+    .car-title {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .car-price {
+      font-size: 16px;
+      color: #f56b2a;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .car-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .car-item img {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Car Rent</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="types-of-cars.html">Types of Cars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="About-us.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="FAQ.html">FAQ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="profile.html">Profile</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Search and Filter Controls -->
+<div class="container my-4">
+  <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search for a car...">
+  <select id="filterSelect" class="form-control mb-3">
+    <option value="all">All Types</option>
+    <option value="SUV">SUV</option>
+    <option value="Sedan">Sedan</option>
+    <option value="Van">Van</option>
+    <option value="Micro">Micro</option>
+    <option value="Sports Car">Sports Car</option>
+    <option value="Luxury Car">Luxury Car</option>
+    <option value="Electric Car">Electric Car</option>
+
+  </select>
+</div>
+
+<div class="container my-4" id="carList">
+  <h1 class="mb-4">Types of Cars</h1>
+  <div class="car-item" data-type="SUV">
+    <img src="https://platform.cstatic-images.com/large/in/v2/stock_photos/200f2cb3-c6d3-46e8-8b40-29b435019403/e3c6233d-20e1-49bd-9b13-3448329c2f3a.png" alt="SUV">
+    <div class="car-details">
+      <div class="car-title">SUV</div>
+      <div class="car-price">20K tg/day</div>
+    </div>
+  </div>
+  <div class="car-item" data-type="Sedan">
+    <img src="https://www.avtogermes.ru/images/models/service/0eb6e414811dd6e31998dbf392b210a1.png" alt="Sedan">
+    <div class="car-details">
+      <div class="car-title">Sedan</div>
+      <div class="car-price">10K tg/day</div>
+    </div>
+  </div>
+  <div class="car-item" data-type="Van">
+    <img src="https://img.freepik.com/premium-photo/white-midsize-commercial-van-white-background-blank-body-applying-your-design-inscriptions-logos-3d-illustration_101266-20391.jpg" alt="Van">
+    <div class="car-details">
+      <div class="car-title">Van</div>
+      <div class="car-price">20K tg/day</div>
+    </div>
+  </div>
+  <div class="car-item" data-type="Micro">
+    <img src="https://www.domusweb.it/content/dam/domusweb/it/speciali/assoluti-del-design/gallery/2021/microcar-dieci-modelli-di-auto-piccolissime-progettate-per-la-citt-/08-Renault%20Twizy.jpg.foto.rbig.jpg" alt="Micro">
+    <div class="car-details">
+      <div class="car-title">Micro</div>
+      <div class="car-price">20K tg/day</div>
+    </div>
+  </div>
+  <div class="car-item" data-type="Sports Car">
+    <img src="https://s3.us-east-2.amazonaws.com/ccp-prd-s3-uploads/2019/3/12/989042b3bbb340c2a99bec2bc2cfdd6ec6d94126.jpeg" alt="Sports Car">
+    <div class="car-details">
+      <div class="car-title">Sports Car</div>
+      <div class="car-price">30K tg/day</div>
+    </div>
+  </div>
+  <div class="car-item" data-type="Luxury Car">
+    <img src="https://imgd.aeplcdn.com/1920x1080/n/cw/ec/30181/phantom-exterior-right-front-three-quarter.jpeg" alt="Luxury Car">
+    <div class="car-details">
+      <div class="car-title">Luxury Car</div>
+      <div class="car-price">35K tg/day</div>
+    </div>
+  </div>
+  <div class="car-item" data-type="Electric Car">
+    <img src="https://www.tesla.com/ownersmanual/images/GUID-B5641257-9E85-404B-9667-4DA5FDF6D2E7-online-en-US.png" alt="Electric Car">
+    <div class="car-details">
+      <div class="car-title">Electric Car</div>
+      <div class="car-price">28K tg/day</div>
+    </div>
+  </div>
+
+
+</div>
+
+<!-- JavaScript for Search and Filter -->
+<script>
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const carItems = document.querySelectorAll('.car-item');
+    carItems.forEach(car => {
+      const title = car.querySelector('.car-title').textContent.toLowerCase();
+      car.style.display = title.includes(query) ? 'flex' : 'none';
+    });
+  });
+
+  document.getElementById('filterSelect').addEventListener('change', function () {
+    const selectedType = this.value;
+    const carItems = document.querySelectorAll('.car-item');
+    carItems.forEach(car => {
+      const carType = car.getAttribute('data-type');
+      car.style.display = (selectedType === 'all' || carType === selectedType) ? 'flex' : 'none';
+    });
+  });
+</script>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+
+  document.querySelectorAll('.car-item').forEach(carItem => {
+    carItem.addEventListener('click', function () {
+      const carType = this.getAttribute('data-type');
+
+      // Проверка типа автомобиля и перенаправление на соответствующую страницу
+      switch (carType) {
+        case 'SUV':
+          window.location.href = 'SUV.html';
+          break;
+        case 'Sedan':
+          window.location.href = 'Sedan.html';
+          break;
+        case 'Van':
+          window.location.href = 'Van.html';
+          break;
+        case 'Micro':
+          window.location.href = 'Micro.html';
+          break;
+        case 'Sports Car':
+          window.location.href = 'Sports.html';
+          break;
+        case 'Luxury Car':
+          window.location.href = 'Luxury.html';
+          break;
+        case 'Electric Car':
+          window.location.href = 'Electric.html';
+          break;
+        default:
+          window.location.href = 'default.html';
+      }
+    });
+  });
+
+</script>
+</body>
+</html>
