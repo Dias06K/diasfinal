@@ -50,28 +50,9 @@
       text-align: center;
     }
 
-    .modal-header, .modal-body, .modal-footer {
-      text-align: center;
-    }
-
-    .modal-body {
-      padding: 30px;
-    }
-
-    .form-group {
-      margin-bottom: 15px;
-    }
-
-    .modal-footer {
-      justify-content: center;
-    }
-
-    .modal-footer button {
-      width: 150px;
-    }
 
     .btn-primary, .btn-success {
-      width: 100%;
+      width: 80%;
       padding: 10px;
       font-size: 16px;
     }
@@ -83,26 +64,65 @@
     /* Additional styling for navbar login button */
     .navbar .btn {
       padding: 8px 16px;
-      font-size: 16px;
+      font-size: 8px;
     }
 
+    .navbar .nav-link {
+      color: #333 ; /* Dark text for light mode */
+    }
+
+    .navbar-dark-mode .nav-link {
+      color: #fff ; /* Light text for dark mode */
+    }
     /* Style for switch form button */
     #toggleFormBtn {
-      color: #007bff;
+      color:gray;
       cursor: pointer;
       text-decoration: underline;
     }
 
     #toggleFormBtn:hover {
-      color: #0056b3;
+      color: gray;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .navbar, .footer, .nav-link {
+      background-color: #ffffff;
+    }
+
+    .dark-mode .navbar, .dark-mode .footer {
+      background-color: #333;
+      color: #ffffff;
+    }
+    .dark-mode .nav-link, .dark-mode .footer {
+      background-color: #333;
+      color: #ffffff;
+    }
+
+    .mode-toggle {
+      margin: 10px;
+      padding: 10px 10px;
+      cursor: pointer;
+      background-color: #ccc;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .mode-toggle:hover {
+      background-color: #bbb;
     }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Car Rent</a>
+    <a class="nav-link" href="index.html">Car Rent</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -122,8 +142,9 @@
         </li>
         <!-- Sign-up/Login Button -->
         <li class="nav-item">
-          <button class="btn btn-primary" id="authBtn" data-toggle="modal" data-target="#authModal">Sign Up / Log In</button>
+          <button class="btn btn-primary" id="authBtn" data-toggle="modal" data-target="#authModal">Log In Sign Up</button>
         </li>
+
       </ul>
     </div>
   </div>
@@ -181,9 +202,12 @@
   </div>
 </div>
 
+
+
 <!-- Footer -->
-<footer>
-  <p>Powered by Dias Kami, IT-2307 &bull; <a href="https://t.me/formt17">Contact Us</a></p>
+<footer class="footer text-center p-3">
+  <p>&copy; Powered by Dias Kami, IT-2307</p>
+  <button id="modeToggle" class="mode-toggle">Toggle Dark/Light Mode</button>
 </footer>
 
 <!-- Bootstrap JS & dependencies -->
@@ -251,6 +275,25 @@
     }
   }
   updateNavbar();
+</script>
+
+<script>
+  // Check saved preference and apply it on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'enabled') {
+      document.body.classList.add('dark-mode');
+      document.getElementById('modeToggle').textContent = 'Switch to Light Mode';
+    }
+  });
+
+  // Toggle dark/light mode and save preference
+  document.getElementById('modeToggle').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+    document.getElementById('modeToggle').textContent = isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+  });
 </script>
 
 </body>
