@@ -36,9 +36,9 @@ Usage
 
 File Structure
 
-    index.html: 
-    types-of-cars.html: 
-    About-us.html:
+    index.html
+    types-of-cars.html
+    About-us.html
     FAQ.html
     profile.html
     
