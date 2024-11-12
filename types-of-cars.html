@@ -8,7 +8,41 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* Light mode background */
+    color: #333; /* Light mode text color */
+    }
+
+    .navbar, .footer {
+      background-color: #fff; /* Light mode navbar and footer */
+    }
+
+    .navbar .nav-link {
+      color: #333; /* Dark text for light mode */
+    }
+
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #333; /* Dark mode background */
+      color: #fff; /* Dark mode text color */
+    }
+    body.dark-mode .nav-link,
+    body.dark-mode .navbar,
+    body.dark-mode .footer {
+      background-color: #333;
+      color: #fff;/* Dark mode navbar and footer */
+    }
+
+
+    body.dark-mode .car-item {
+      background-color: #2c2c2c; /* Dark background for car items */
+      color: #fff; /* Light text color for car items */
+      border: 1px solid #444; /* Dark border */
+    }
+
+    body.dark-mode .car-item img {
+      filter: brightness(0.7); /* Darken images in dark mode */
     }
 
     .car-item {
@@ -43,6 +77,20 @@
       color: #f56b2a;
     }
 
+    .mode-toggle {
+      margin: 10px;
+      padding: 10px 10px;
+      cursor: pointer;
+      background-color: #ccc;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .mode-toggle:hover {
+      background-color: #bbb;
+    }
+
     /* Mobile Responsiveness */
     @media (max-width: 768px) {
       .car-item {
@@ -61,9 +109,9 @@
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+<nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Car Rent</a>
+    <a class="nav-link" href="index.html">Car Rent</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -156,7 +204,11 @@
 
 
 </div>
-
+<!-- Footer -->
+<footer class="footer text-center p-3">
+  <p>&copy; Powered by Dias Kami, IT-2307</p>
+  <button id="modeToggle" class="mode-toggle">Toggle Dark/Light Mode</button>
+</footer>
 <!-- JavaScript for Search and Filter -->
 <script>
   document.getElementById('searchInput').addEventListener('input', function () {
@@ -216,7 +268,24 @@
       }
     });
   });
+  // Get the toggle button and check if dark mode is enabled
+  const modeToggle = document.getElementById('modeToggle');
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+  }
+
+  // Toggle Dark/Light Mode
+  modeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    // Save the user's preference to localStorage
+    if (document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'enabled');
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+    }
+  });
 
 </script>
+
 </body>
 </html>
