@@ -7,7 +7,6 @@ A responsive and user-friendly car rental website that allows users to sign in, 
 - **Authentication**: User sign-in and sign-up using a username.
 - **Car Types List**: Browse and filter various types of cars available for rent.
 - **Dark/Light Mode**: Toggle between dark and light mode with preferences saved across sessions.
-- **Customizable Background**: Change background images based on user preferences.
 - **Animations**: Smooth transition and hover animations for a better user experience.
 - **Responsive Design**: Fully responsive for all screen sizes, optimized for both desktop and mobile.
 
