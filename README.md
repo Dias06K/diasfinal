@@ -17,7 +17,7 @@ A responsive and user-friendly car rental website that allows users to sign in, 
 Make sure you have the following installed:
 
 - A modern web browser (Chrome, Firefox, Safari, etc.).
-- A code editor (VS Code, Sublime Text, etc.) for customization and development.
+- A code editor (Intellij idea) for customization and development.
 
 ### Clone the Repository
 
